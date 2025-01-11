@@ -1,0 +1,52 @@
+
+p
+
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="./article" method="post">
+            <input type="text" name="title">
+            <input type="text" name="content">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+
+
+//name : input태그의 이름 
+웹 서버에서도 같은 이름으로 받아서처리해야된다.
+
+submit의 경우에는 name 속성이 없다.
+이는 웹 서버로 전송되는게 아니라, form내부에서 처리되는 동작이기 때문이다.
+form 동작은 데이터를 서버로 전송하는 것.
+submit은 form태그 내부에서 form을 제출하는 버튼의 용도
+즉 , 이 submit은 form에만 도달하면 역할은 끝 이라는 것
+
+
+//여기서 article url이 없어서 실행이 되지 않는다.
+해당요청을 받을 수 있는 컨트롤러 추가
+또는 article이라는 새로운 파일 생성 
+
+api 문서를 생성해줘야한다.
+  
+
+
+  코드들은 외울 수도 있지만 어떤 annotation이 어떤 동작을 하는지 검색하여학습가능
+
+태그
+액션 : 어디로 이동하는지 path지정
+method post사용, body를 가지고 있는경우 일반적으로 get보다는 post사용
+get:그냥 링크를 거는게 낫다.
+
+enctype 은 추후에 다시 학습
+
+각각의 차이 학습 
+데이터가 어떤식으로 전송되는지 
+어떤 상황에 사용하는지 구분하여 학습 
+
+
+html input types :  참고자료 
+https://www.w3schools.com/Html/html_form_input_types.as
