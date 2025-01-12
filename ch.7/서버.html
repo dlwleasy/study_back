@@ -5,22 +5,40 @@
 </head>
 <body>
 <script>
-  
+  1.함수선언
     function onReadyStateChange(event) {
         if (ajaxRequest.readyState === XMLHttpRequest.DONE) {
-            if (ajaxRequest.status === 200) {
-                console.log(ajaxRequest.responseText);
+            //상태에 관심이 있음 -> done 상태로 완료가 되었을때
+            if (ajaxRequest.status === 200) { //200인 경우에 실행시킬 것 : 응답 성공적
+                console.log(ajaxRequest.responseText); // 그 응답 실행 
             } else {
                 console.error('request failed');
             }
         }
     }
 
-  
-    const ajaxRequest = new XMLHttpRequest();
-    ajaxRequest.onreadystatechange = onReadyStateChange; //함수를 변수처럼 
+  2.AJAX 요청 전송 
+    const ajaxRequest = new XMLHttpRequest(); // 이런 객체 생성 ( 자바의 객체 생성과 다른점 알기 )
+    이렇게 객체를 생성함으로써 AJAX 요청 가능 
+    자바와 달리 자료형이 다른 것을 객체로 생성함
+    자바의 경우 자료형이 같거나 상속의 경우에만 생성할 수 있음 
+
+    ajaxRequest 상수에 들어있는 값들을 설정 
+    ajaxRequest.onreadystatechange = onReadyStateChange; //함수를 변수처럼, 함수로 초기화 시켜줌 
     ajaxRequest.open('GET', '/get-with-no-parameter');
-    ajaxRequest.send();
+    //open메서드 : ajax요청 준비 : 어떤 요청을 보낼지 초기화 (get메서드 사용 , 어떤 경로를 사용할지 지정) 
+    ajaxRequest.send(); // 이 메서드가 호출되었을때, 실질적으로 ajax요청이 날아가는 부분 
+
+    
+    요청이 성공하고 응답이 왔을때 어떤 동작을 해야하는가 :onReadyStateChange
+    -> 이벤트 헨들러 등록 : 특정 이벤트를 등록했을때 어떤 함수를 실행시켜줄지 지정 
+    readystate : 여러가지 상태가 있음 
+    
+UNSENT            0 
+OPENED            1
+HEADERS_RECEIVED  2
+LOADING           3
+DONE              4
 </script>
 </body>
 </html>
