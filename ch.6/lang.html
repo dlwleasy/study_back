@@ -1,0 +1,47 @@
+
+1. 
+<!-- index_ko.html -->
+<html lang="ko">
+  <head>
+    <title>한글 페이지</title>
+  </head>
+  <body>
+    <h1>안녕하세요</h1>
+  </body>
+</html>
+
+<!-- index_en.html -->
+<html lang="en-US">
+  <head>
+    <title>English Page</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+  </body>
+</html>
+
+2.
+<html lang="ko">
+  <head>
+    <title>다국어 페이지</title>
+    <script>
+      const translations = {
+        ko: { title: "다국어 페이지", greeting: "안녕하세요" },
+        en: { title: "Multilingual Page", greeting: "Hello" },
+      };
+
+      function changeLanguage(lang) {
+        document.title = translations[lang].title;
+        document.getElementById("greeting").textContent = translations[lang].greeting;
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="greeting">안녕하세요</h1>
+    <button onclick="changeLanguage('ko')">한국어</button>
+    <button onclick="changeLanguage('en')">English</button>
+  </body>
+</html>
+
+
+
