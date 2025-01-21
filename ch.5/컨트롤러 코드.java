@@ -3,7 +3,7 @@ package kr.co.hambit;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController // 이 자체가 컨트롤러
+@RestController // 컨트롤러 메서드 정의 
 public class SimpleRestController {
 
     @RequestMapping("/") // 특정 URL 요청을 메서드와 매핑 ("") : "경로"라고 함
