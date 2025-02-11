@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+</html>
+<body>
+  <script>
+1.함수선언: 이 함수는 ajaxRequest의 readystate가 변경될때 호출되도록 이벤트 헨들러로 등록됨 
+function onReadyStatChange(event){ //이벤트가 발생했을 때 호출되는 함수 : 이벤트 헨들러 
+      if(ajaxRequest.readyState === XMLHttpRequest.DONE){ //readyState가 변경되는 것이 이벤트 
+        if(ajaxRequest.status === 200){
+          console.log(ajaxRequest.responseText);
+        }else {
+          console.error('request failed'); //실패시 에러로그 찍음 
+        }
+      }}
+
+2.변수에 저장됨: XHR객체를 생성하여 AJAX 요청
+const ajaxRequest = new XMLHttpRequest(); //객체생성후,ajaxRequest에 저장 
+    //함수가 변수에 저장됨, 함수를 변수취급하는 자바슼
+    ajaxRequest.onreadystatechange = onReadyStateChange;  
+    //요청을 초기화 = 요청을 준비 
+    ajaxRequest.open('GET','/get-with-no-parameter'); //GET메서드로 ''경로로
+    ajaxRequest.send(); //이때 비로소 AJAX요청이 날아감 
+  </script>
+</body>
