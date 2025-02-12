@@ -19,9 +19,13 @@ if(currentAjaxRequest.readyState ===XMLHttpRequest.DONE){
        bookmarkListDom.innerHTML = '';
 
 const bookmarks = JSON.parse(currentAjaxRequest.responseText);
- bookmarks.forEach(bookmark =>{
+      //자바스크립트 객체로 변경, 자바스크립트의 객체로 변경하는 것으로 get메서드요청의 응답으로 
+      //'즐겨찾기의 JSON배열을 받아 '자바스크립트의 즐겨찾기 배열'로 만드는 코드 
+
+ //Foreach메서드를 통해서 배열을 순회하면서 html태그 추가      
+ bookmarks.forEach(bookmark =>{ 
 const liNode = document.createElement('li);
-const textNode = document.createTextNode(bookmark.name + '-' + bookmark.url);
+const textNode = document.createTextNode(bookmark.name + '-' + bookmark.url); //추가 
   liNode.appendChild(textNode);
   bookmarkListDom.appendChild(liNode);
 
