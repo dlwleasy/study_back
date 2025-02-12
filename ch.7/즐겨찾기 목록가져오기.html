@@ -1,0 +1,39 @@
+(생략)
+
+<input type="submit"><br>
+</form>
+<button onclick="getBookmarkListRequest();">즐겨찾기 목록 가져오기</button>
+<ol id="bookmark-list">
+  <!--여기에 즐겨찾기 목록이 나옵니다.-->
+</ol>
+
+(생략)
+<script>
+function getBookmarkListRequest(){
+ function onReadyStateChange(event){
+   const currentAjaxRequest = event.currentTarget;
+
+if(currentAjaxRequest.readyState ===XMLHttpRequest.DONE){
+    if(currentAjaxRequest.status === 200){
+       const bookmarkListDom = document.quertSelector('#bookmark-list');
+       bookmarkListDom.innerHTML = '';
+
+const bookmarks = JSON.parse(currentAjaxRequest.responseText);
+ bookmarks.forEach(bookmark =>{
+const liNode = document.createElement('li);
+const textNode = document.createTextNode(bookmark.name + '-' + bookmark.url);
+  liNode.appendChild(textNode);
+  bookmarkListDom.appendChild(liNode);
+
+});
+
+const ajaxRequest = new XMLHttpRequest();
+
+  ajaxRequest.onreadystatechange = onReadyStateChange;
+  ajaxRequest.open('GET','/bookmarks');
+  ajaxRequest.send();
+}
+</script>
+}
+
+}
